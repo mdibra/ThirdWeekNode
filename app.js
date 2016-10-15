@@ -50,18 +50,6 @@ app.delete('/collections/todos/:item',function(request,response){
 		})
 	});
 });
-app.delete('/api/todos/:item',function(request,response){
-	Todo.remove({
-		item : request.params.item},
-		function(error,todo){
-		if(error)response.send(error);
-
-		Todo.find(function(error, todos){
-			if(error)response.send(error);
-			else {response.json(todos)}
-		})
-	});
-});
 
 app.listen(8080);
 console.log('listening on 8080')
